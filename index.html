@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice - 3</title>
+  <script src="assets/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+  <form>
+    <label for="lastname">lastname : </label><input type="text" name="lastname" id="lastname"/>
+    <label for="firstname">firstname : </label><input type="text" name="firstname" id="firstname"/>
+    <label for="mail">mail : </label><input type="text" name="mail" id="mail"/>
+    <label for="mobile">mobile : </label><input type="text" name="mobile" id="mobile"/>
+    <button type="button" name="button" id="checkStart">Check</button>
+  </form>
+</body>
+<script>
+$(function(){
+  // Détecte si le bouton ayant l'id checkStart est activé
+  $('#checkStart').click(function(){
+    // Délaration des variables contenant les différents regex
+    var nameRegex = /^[a-zA-Z\'\-éàèîêâà]+$/;
+    var mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var mobileRegex = /^((\+)33|0)[1-9](\d{2}){4}$/;
+    // Vérifie si les caractères entrés sont valides
+    if(nameRegex.test($('#lastname').val()) == true) {
+      // change la couleur du background en vert si valides
+      $('#lastname').css('background-color', 'rgba(0,200,0,0.25)');
+    }
+    else {
+      // change la couleur du background en rouge si invalides
+      $('#lastname').css('background-color', 'rgba(200,0,0,0.25)');
+    }
+    // Vérifie si les caractères entrés sont valides
+    if(nameRegex.test($('#firstname').val()) == true) {
+      // change la couleur du background en vert si valides
+      $('#firstname').css('background-color', 'rgba(0,200,0,0.25)');
+    }
+    else {
+      // change la couleur du background en rouge si invalides
+      $('#firstname').css('background-color', 'rgba(200,0,0,0.25)');
+    }
+    // Vérifie si les caractères entrés sont valides
+    if(mailRegex.test($('#mail').val()) == true) {
+      // change la couleur du background en vert si valides
+      $('#mail').css('background-color', 'rgba(0,200,0,0.25)');
+    }
+    else {
+      // change la couleur du background en rouge si invalides
+      $('#mail').css('background-color', 'rgba(200,0,0,0.25)');
+    }
+    // Vérifie si les caractères entrés sont valides
+    if(mobileRegex.test($('#mobile').val()) == true) {
+      // change la couleur du background en vert si valides
+      $('#mobile').css('background-color', 'rgba(0,200,0,0.25)');
+    }
+    else {
+      // change la couleur du background en rouge si invalides
+      $('#mobile').css('background-color', 'rgba(200,0,0,0.25)');
+    }
+  });
+});
+</script>
+</html>
